@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.w-100{
+    width: 100%;
+}
+.p-3{
+    padding: 16px;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none; 
+}
+.mat-card.payment-card{
+    box-sizing: border-box;
+    height: 150px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    place-content: center; 
+}
+.color-white{
+    color:#fff;
+}
+.text-center{
+    text-align: center;
+}
+main{
+    height: calc(100vh - 64px);   //64px is toolbar heigh
+}

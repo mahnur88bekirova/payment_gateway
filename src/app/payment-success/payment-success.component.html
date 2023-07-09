@@ -1,0 +1,13 @@
+<div *ngIf="payments" fxLayout="row wrap"> 
+
+    <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between center">
+        <mat-icon>add_shopping_cart</mat-icon>
+        <b>{{ (this.payments[0])?.amount.toFixed(2) }} {{ (this.payments[0])?.currency }}</b>
+    </div>
+
+    <div fxFlex="100">
+        <p class="text-center">Your payment is successfully processed!</p>
+    </div>  
+
+</div>
+

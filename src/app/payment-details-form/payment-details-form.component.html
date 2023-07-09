@@ -1,0 +1,31 @@
+<div *ngIf="(paymentService.paymentDetails$ | async)" fxLayout="row wrap"> 
+
+    <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between center">
+        <mat-icon>add_shopping_cart</mat-icon>
+        <b>{{ (paymentService.paymentDetails$ | async)?.currency }} {{ (paymentService.paymentDetails$ | async)?.amount.toFixed(2) }}</b>
+    </div>
+
+    <div fxFlex="100">
+        <p class="text-center">Please, fill out required fields!</p>
+    </div>  
+    
+    <div fxFlex="100">
+        <form [formGroup]="form" (ngSubmit)="onFormSubmit()">
+            <div *ngFor="let field of this.formFields"> 
+                <mat-form-field appearance="outline" class="w-100"> 
+                    <mat-label>{{field.label}}</mat-label>
+                    <input matInput [type]="field.type" [formControlName]="field.formControlName" [required]="field.validation.required"> 
+                    <mat-error *ngIf="form.controls[field.formControlName].errors?.required">{{field.validation.message}}</mat-error>   
+                </mat-form-field>  
+            </div>
+            <div fxLayout="row"  fxLayoutAlign="end center" class="p-3">
+                <button mat-raised-button type="submit" color="primary">PAY</button>
+            </div>
+        </form> 
+    </div>
+
+</div>
+
+<div *ngIf="!(paymentService.paymentDetails$ | async)" fxFill  fxLayout="row" fxLayoutAlign="center center" class="p-3">
+    <mat-spinner diameter="70"></mat-spinner>
+</div>   
